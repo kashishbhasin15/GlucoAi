@@ -1,0 +1,16 @@
+.shell{display:grid;grid-template-columns:230px 1fr;gap:28px;max-width:1400px;margin:0 auto;padding:calc(var(--nav-h) + 28px) clamp(16px,3vw,40px) 70px}
+.shell__main{display:flex;flex-direction:column;gap:18px;min-width:0}
+.shell__head h1{font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:6px;text-shadow:2px 2px 6px rgba(3,2,12,.8),-1px -1px 4px rgba(150,130,255,.2)}.shell__head p{color:var(--text-secondary);max-width:70ch}
+.shell__tabs{display:inline-flex;align-self:flex-start;padding:5px;border-radius:999px;background:#0e0926;box-shadow:var(--neu-inset)}
+.shell__tabs button{padding:9px 20px;border-radius:999px;color:var(--text-secondary);font-size:.88rem}.shell__tabs .is-on{color:#090719;background:linear-gradient(135deg,var(--ice-blue),var(--lavender));font-weight:600}
+.shell__kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.shell__kpis small{display:block;color:var(--text-secondary);font-size:.78rem}.shell__kpis strong{display:block;font:500 1.65rem var(--font-mono);color:var(--ice-blue)}.shell__kpis em{font-style:normal;font-size:.7rem;color:var(--gold)}
+.shell__filter{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.shell__filter button,.shell__chip{padding:8px 16px;border-radius:999px;font-size:.82rem;color:var(--text-secondary);background:linear-gradient(145deg,#1b1247,#120b2f);box-shadow:6px 6px 12px rgba(3,2,12,.6),-4px -4px 10px rgba(120,100,220,.08)}
+.shell__filter button[aria-pressed=true]{box-shadow:var(--neu-inset);background:#0e0926;color:var(--gold)}
+.shell__filter label{display:flex;gap:8px;align-items:center;font-size:.85rem;color:var(--text-secondary)}
+.shell__err{text-align:center}.shell__err button{margin-top:12px;padding:9px 22px;border-radius:12px;box-shadow:var(--neu-shadow);background:var(--bg-elevated)}
+.shell__skel{display:flex;flex-direction:column;gap:16px}.shell__skrow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.shell__skel span{height:90px;border-radius:20px;background:linear-gradient(100deg,rgba(185,164,240,.08) 30%,rgba(185,164,240,.2) 50%,rgba(185,164,240,.08) 70%);background-size:200% 100%;animation:sh-shimmer 1.6s linear infinite}.shell__skel .shell__skbig{height:280px}
+@keyframes sh-shimmer{to{background-position:-200% 0}}
+@media(max-width:1023px){.shell{grid-template-columns:1fr;gap:16px}.shell__kpis,.shell__skrow{grid-template-columns:repeat(2,1fr)}}

@@ -1,0 +1,12 @@
+.nn{width:100%;height:auto}.nn__line{stroke:var(--lavender);stroke-opacity:.35;stroke-width:.7;stroke-dasharray:4 4;animation:nn-flow 2.4s linear infinite}
+.nn__node{fill:var(--ice-blue);filter:drop-shadow(0 0 4px var(--ice-blue));animation:nn-pulse 2s ease-in-out infinite}
+@keyframes nn-flow{to{stroke-dashoffset:-16}}@keyframes nn-pulse{50%{fill:var(--pink);r:5}}
+.orbit{position:relative;width:150px;height:150px;margin:0 auto;transform-style:preserve-3d;animation:orbit-spin 12s linear infinite}
+.orbit i{position:absolute;inset:0;border-radius:50%;border:2px solid var(--lavender);box-shadow:0 0 14px rgba(185,164,240,.5)}
+.orbit i:nth-child(1){transform:rotateX(70deg)}.orbit i:nth-child(2){transform:rotateY(70deg);border-color:var(--pink)}.orbit i:nth-child(3){transform:rotateX(35deg) rotateY(35deg);border-color:var(--gold)}
+.orbit b{position:absolute;inset:50px;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--ice-blue),var(--electric-blue));box-shadow:0 0 30px var(--electric-blue)}
+@keyframes orbit-spin{to{transform:rotateY(360deg) rotateZ(20deg)}}
+.orb{position:relative;width:min(240px,60vw);aspect-ratio:1;margin:0 auto;animation:orb-float 5s ease-in-out infinite}
+.orb__core{position:absolute;inset:18%;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff6,var(--lavender) 25%,var(--purple) 60%,var(--electric-blue));box-shadow:0 0 70px rgba(120,69,232,.8),inset -10px -14px 30px rgba(9,7,25,.5)}
+.orb i{position:absolute;inset:4%;border-radius:50%;border:1px solid rgba(232,161,202,.6);animation:orb-ring 7s linear infinite}.orb i:nth-child(3){inset:-4%;border-color:rgba(139,185,255,.5);animation-duration:11s;animation-direction:reverse}
+@keyframes orb-float{50%{transform:translateY(-14px)}}@keyframes orb-ring{to{transform:rotateX(65deg) rotateZ(360deg)}}

@@ -1,0 +1,6 @@
+.glx-footer{padding:56px clamp(16px,4vw,48px) 24px;background:var(--bg-secondary);border-top:1px solid rgba(139,185,255,.15)}
+.glx-footer__grid{display:grid;grid-template-columns:1fr 1fr 1.5fr;gap:32px;max-width:1200px;margin:0 auto 32px}
+.glx-footer h3{margin-bottom:8px}.glx-footer p,.glx-footer small{color:var(--text-secondary);font-size:.9rem}
+.glx-footer nav{display:flex;flex-direction:column;gap:6px;color:var(--text-secondary)}.glx-footer nav a:hover{color:var(--neon-cyan)}
+.glx-footer small{display:block;text-align:center}
+@media(max-width:767px){.glx-footer__grid{grid-template-columns:1fr}}

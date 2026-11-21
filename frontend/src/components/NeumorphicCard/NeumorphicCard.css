@@ -1,0 +1,4 @@
+.neu{padding:24px;border-radius:24px;background:linear-gradient(145deg,#1b1247,#120b2f);box-shadow:var(--neu-shadow);border:1px solid rgba(185,164,240,.06);transition:transform .3s,box-shadow .3s}
+.neu--inset{background:#0e0926;box-shadow:var(--neu-inset)}
+.neu--tilt:hover{transform:perspective(900px) rotateX(5deg) rotateY(-6deg) translateY(-4px)}
+@media(prefers-reduced-motion:reduce){.neu--tilt:hover{transform:none}}

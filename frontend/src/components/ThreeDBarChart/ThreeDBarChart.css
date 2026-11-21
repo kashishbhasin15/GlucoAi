@@ -1,0 +1,31 @@
+.glx-bars{position:relative;width:100%;height:100%;min-height:240px;overflow:hidden;border-radius:inherit}
+.glx-bars canvas{position:absolute;inset:0}
+.glx-bars figcaption{position:absolute;top:14px;left:18px;z-index:2;font:600 .95rem var(--font-head);pointer-events:none}
+.glx-bars figcaption em{font:400 .75rem var(--font-body);color:var(--gold)}
+.glx-bar-label{font:500 11px var(--font-mono);color:var(--lilac);white-space:nowrap}
+.glx-bar-tip{position:absolute;top:12px;right:12px;z-index:3;display:flex;flex-direction:column;gap:1px;min-width:158px;padding:10px 12px;font:.74rem var(--font-body);color:var(--text-secondary);background:rgba(15,11,38,.8);backdrop-filter:blur(14px);border:1px solid rgba(139,185,255,.35);border-radius:12px;pointer-events:none;opacity:.55;transition:.2s}
+.glx-bar-tip.is-on{opacity:1;border-color:var(--lavender);box-shadow:0 0 22px rgba(120,69,232,.4)}
+.glx-bar-tip strong{font:700 .9rem var(--font-head);color:var(--ice-blue)}.glx-bar-tip b{color:var(--text-primary);font:500 .74rem var(--font-mono);float:right;margin-left:12px}
+.glx-bar-tip em{color:var(--gold);font-size:.66rem}.glx-bar-tip__hint{font-style:italic}
+
+/* X-axis age group labels */
+
+.glx-bar-label {
+  display: inline-block;
+  font-family: inherit;
+  font-size: 9px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+  color: #e5ddff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* Smaller screens */
+
+@media (max-width: 600px) {
+  .glx-bar-label {
+    font-size: 8px !important;
+  }
+}

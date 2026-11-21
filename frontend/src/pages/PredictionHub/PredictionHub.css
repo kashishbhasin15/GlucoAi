@@ -1,0 +1,80 @@
+/* .ph{max-width:1100px;margin:0 auto;padding:calc(var(--nav-h) + 48px) clamp(16px,3vw,32px) 80px}
+.ph h1{font-size:clamp(2rem,4.5vw,3.2rem);text-shadow:3px 3px 8px rgba(3,2,12,.8),-2px -2px 6px rgba(150,130,255,.2)}.ph__lead{color:var(--text-secondary);margin:10px 0 36px;max-width:60ch}
+.ph__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}.ph__card{display:flex;flex-direction:column;gap:14px;padding:32px;min-height:420px;justify-content:flex-end}
+.ph__card>:first-child{margin-bottom:auto}.ph__card p{color:var(--text-secondary)}
+.ph__btn{align-self:flex-start;padding:12px 24px;border-radius:14px;font-weight:600;background:linear-gradient(135deg,var(--electric-blue),var(--purple));box-shadow:6px 6px 14px rgba(3,2,12,.6)}.ph__btn:hover{filter:brightness(1.15)}
+@media(max-width:800px){.ph__grid{grid-template-columns:1fr}} */
+
+.ph {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: calc(var(--nav-h) + 48px) clamp(16px, 3vw, 32px) 80px;
+}
+
+.ph h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  text-shadow:
+    3px 3px 8px rgba(3, 2, 12, .8),
+    -2px -2px 6px rgba(150, 130, 255, .2);
+}
+
+.ph__lead {
+  color: var(--text-secondary);
+  margin: 10px 0 36px;
+  max-width: 60ch;
+}
+
+/* Three cards in one row */
+.ph__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.ph__card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  min-height: 420px;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.ph__card > :first-child {
+  margin-bottom: auto;
+}
+
+.ph__card p {
+  color: var(--text-secondary);
+}
+
+.ph__btn {
+  align-self: flex-start;
+  padding: 12px 20px;
+  border-radius: 14px;
+  font-weight: 600;
+  background: linear-gradient(
+    135deg,
+    var(--electric-blue),
+    var(--purple)
+  );
+  box-shadow: 6px 6px 14px rgba(3, 2, 12, .6);
+  text-align: center;
+}
+
+.ph__btn:hover {
+  filter: brightness(1.15);
+}
+
+/* Tablet and mobile */
+@media (max-width: 650px) {
+  .ph__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ph__card {
+    min-height: 380px;
+  }
+}

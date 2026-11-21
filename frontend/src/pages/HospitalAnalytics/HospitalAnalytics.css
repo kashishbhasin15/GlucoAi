@@ -1,0 +1,2 @@
+.ha-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.ha-wide{grid-column:1/-1}
+@media(max-width:900px){.ha-grid{grid-template-columns:1fr}}

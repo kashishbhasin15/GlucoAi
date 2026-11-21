@@ -1,0 +1,382 @@
+
+/* Hospital Stay Prediction — matching PredictionForm.css */
+
+.hsp-wizard {
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+.hsp-container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: calc(var(--nav-h) + 28px) clamp(16px, 3vw, 32px) 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Introduction */
+
+.hsp-hero h1 {
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  margin-bottom: 8px;
+  text-shadow:
+    2px 2px 6px rgba(3, 2, 12, .8),
+    -1px -1px 4px rgba(150, 130, 255, .2);
+}
+
+.hsp-hero p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.hsp-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+/* Step indicators */
+
+.hsp-steps {
+  list-style: none;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 2px 8px;
+}
+
+.hsp-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  color: var(--text-secondary);
+  font-size: .78rem;
+}
+
+.hsp-step-number {
+  display: grid;
+  place-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #0e0926;
+  box-shadow: var(--neu-inset);
+  font: 500 .75rem var(--font-mono);
+}
+
+.hsp-step.active {
+  color: var(--text-primary);
+}
+
+.hsp-step.active .hsp-step-number {
+  background: linear-gradient(
+    135deg,
+    var(--ice-blue),
+    var(--lavender)
+  );
+  color: #090719;
+}
+
+.hsp-step.completed .hsp-step-number {
+  color: var(--gold);
+}
+
+/* Form card — same neumorphic style */
+
+.hsp-panel {
+  padding: 30px;
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    #1b1247,
+    #120b2f
+  );
+  box-shadow: var(--neu-shadow);
+  border: 1px solid rgba(185, 164, 240, .06);
+}
+
+.hsp-panel h2 {
+  margin-bottom: 4px;
+  font-size: clamp(1.25rem, 2.4vw, 1.7rem);
+  color: var(--text-primary);
+}
+
+.hsp-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+/* Form fields */
+
+.hsp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 22px;
+}
+
+.hsp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.hsp-field-wide {
+  grid-column: 1 / -1;
+}
+
+.hsp-field label {
+  font-size: .85rem;
+  color: var(--lilac);
+}
+
+.hsp-field small {
+  color: var(--text-secondary);
+  font-size: .72rem;
+  line-height: 1.6;
+}
+
+.hsp-field input,
+.hsp-field select {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 0;
+  outline: none;
+  background: #0b0720;
+  box-shadow: var(--neu-inset);
+  color: var(--text-primary);
+  font: inherit;
+}
+
+.hsp-field input::placeholder {
+  color: var(--text-secondary);
+}
+
+.hsp-field select {
+  cursor: pointer;
+  color-scheme: dark;
+}
+
+.hsp-field select option {
+  background: #120b2f;
+  color: var(--text-primary);
+}
+
+.hsp-field input:focus-visible,
+.hsp-field select:focus-visible {
+  outline: 2px solid var(--lavender);
+  outline-offset: 2px;
+}
+
+/* Information notices */
+
+.hsp-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(185, 164, 240, .06);
+  color: var(--text-secondary);
+  font-size: .78rem;
+  line-height: 1.6;
+}
+
+.hsp-info svg {
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+.hsp-error {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  color: var(--pink);
+  font-size: .85rem;
+}
+
+/* Review step */
+
+.hsp-review {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px 24px;
+}
+
+.hsp-review-row {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(185, 164, 240, .08);
+}
+
+.hsp-review-row span {
+  display: block;
+  font-size: .74rem;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+.hsp-review-row strong {
+  display: block;
+  font: 500 .9rem var(--font-mono);
+  color: var(--text-primary);
+  overflow-wrap: anywhere;
+}
+
+/* Buttons — same as PredictionForm */
+
+.hsp-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.hsp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 26px;
+  border: 0;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: .9rem;
+  cursor: pointer;
+  background: linear-gradient(
+    145deg,
+    #1b1247,
+    #120b2f
+  );
+  box-shadow: var(--neu-shadow);
+  color: var(--text-primary);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.hsp-btn:active {
+  box-shadow: var(--neu-inset);
+}
+
+.hsp-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.hsp-btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--electric-blue),
+    var(--purple)
+  );
+  color: #fff;
+}
+
+.hsp-btn:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+/* Result screen */
+
+.hsp-result-screen {
+  text-align: center;
+  padding: 12px 0;
+}
+
+.hsp-result-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  background: #0e0926;
+  box-shadow: var(--neu-inset);
+  color: var(--gold);
+}
+
+.hsp-result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.hsp-result-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 190px;
+  padding: 24px;
+  border-radius: 20px;
+  background: #0b0720;
+  box-shadow: var(--neu-inset);
+}
+
+.hsp-result-metric span {
+  font-size: .8rem;
+  color: var(--text-secondary);
+}
+
+.hsp-result-metric strong {
+  font: 600 clamp(2.5rem, 5vw, 4rem) var(--font-mono);
+  color: var(--text-primary);
+}
+
+.hsp-result-metric .hsp-result-category {
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  color: var(--gold);
+}
+
+.hsp-result-disclaimer {
+  margin-top: 22px;
+  font-size: .78rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .hsp-grid,
+  .hsp-review,
+  .hsp-result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hsp-field-wide {
+    grid-column: auto;
+  }
+
+  .hsp-panel {
+    padding: 22px 18px;
+  }
+
+  .hsp-steps {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hsp-container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .hsp-btn {
+    padding: 12px 18px;
+  }
+}

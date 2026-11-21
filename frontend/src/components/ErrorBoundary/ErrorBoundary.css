@@ -1,0 +1,2 @@
+.eb{min-height:70vh;display:grid;place-content:center;text-align:center;gap:12px;padding:24px}.eb p{color:var(--text-secondary)}
+.eb button{justify-self:center;padding:10px 22px;border-radius:12px;background:var(--bg-elevated);box-shadow:var(--neu-shadow)}

@@ -1,0 +1,8 @@
+.pbi{display:grid;grid-template-columns:minmax(260px,1fr) 2fr;gap:20px}
+.pbi__info{display:flex;flex-direction:column;gap:10px}.pbi__msg{color:var(--gold);font-weight:500}
+.pbi dl{display:grid;gap:8px}.pbi dt{font-size:.72rem;color:var(--text-secondary)}.pbi dd{font:.8rem var(--font-mono);word-break:break-all}
+.pbi small{color:var(--text-secondary);font-size:.72rem}
+.pbi__canvas{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:16px;border-radius:22px;background:rgba(185,164,240,.06);border:1px dashed rgba(216,209,231,.25)}
+.pbi__sk{min-height:110px;border-radius:14px;background:linear-gradient(100deg,rgba(185,164,240,.08) 30%,rgba(185,164,240,.2) 50%,rgba(185,164,240,.08) 70%);background-size:200% 100%;animation:pbi-shimmer 1.6s linear infinite}
+@keyframes pbi-shimmer{to{background-position:-200% 0}}
+@media(max-width:900px){.pbi{grid-template-columns:1fr}}

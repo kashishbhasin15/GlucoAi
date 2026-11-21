@@ -1,0 +1,15 @@
+.dw{display:grid;gap:16px;width:100%;height:100%;grid-template-columns:1.35fr 1fr;grid-template-rows:1.5fr 1fr;grid-template-areas:"bars bars" "line gauges"}
+.dw-bars{grid-area:bars;padding:0}.dw-line{grid-area:line;display:flex;flex-direction:column}.dw-gauges{grid-area:gauges}
+.dw-panel{position:relative;min-height:0;padding:14px 16px;border-radius:20px;background:linear-gradient(155deg,#1a1140,#0f0b26);border:1px solid rgba(139,185,255,.22);box-shadow:12px 12px 28px rgba(0,0,0,.6),-6px -6px 18px rgba(120,150,220,.05),inset 0 1px 0 rgba(255,255,255,.06)}
+.dw-line{border-color:rgba(244,184,63,.28)}
+.dw-panel h3{font:600 .9rem var(--font-head);margin-bottom:4px}.dw-panel h3 em{font:400 .72rem var(--font-body);color:var(--neon-orange)}
+.dw-line__chart{flex:1;min-height:0}
+.dw-tip{display:flex;flex-direction:column;gap:1px;min-width:150px;padding:10px 12px;font:.74rem var(--font-body);color:var(--text-secondary);background:rgba(15,11,38,.88);backdrop-filter:blur(14px);border:1px solid var(--neon-orange);border-radius:12px;box-shadow:0 0 20px rgba(244,184,63,.3)}
+.dw-tip strong{font:700 .9rem var(--font-head);color:var(--neon-orange)}.dw-tip b{float:right;margin-left:12px;color:var(--text-primary);font:500 .74rem var(--font-mono)}.dw-tip em{font-size:.66rem;color:var(--neon-orange)}
+.dw-gauges{display:flex;flex-direction:column}
+.dw-gauges__row{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;align-items:center;text-align:center}
+.dw-gauge{display:flex;flex-direction:column;align-items:center;line-height:1.15}
+.dw-gauge svg{width:100%;max-width:84px}.dw-gauge path{fill:none;stroke-width:9;stroke-linecap:round}.dw-gauge__track{stroke:rgba(255,255,255,.09)}
+.dw-gauge strong{font:500 .95rem var(--font-mono);margin-top:-16px}.dw-gauge span{font-size:.66rem;color:var(--text-secondary)}
+@media(max-width:767px){.dw{grid-template-columns:1fr;grid-template-rows:none;grid-template-areas:"bars" "line" "gauges"}.dw-bars{height:320px}.dw-line{height:230px}}
+.dw-panel{background:linear-gradient(145deg,rgba(185,164,240,.15),rgba(68,72,245,.06));backdrop-filter:blur(18px) saturate(140%);border:1px solid rgba(216,209,231,.22);box-shadow:0 20px 50px rgba(3,2,12,.55),inset 0 1px 0 rgba(255,255,255,.22)}
