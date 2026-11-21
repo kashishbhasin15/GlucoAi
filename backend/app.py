@@ -24,7 +24,8 @@ app.register_blueprint(
     url_prefix="/api/analytics"
 )
 
-frontend_origin = os.getenv("FRONTEND_ORIGIN", "")
+
+frontend_origin = os.getenv("FRONTEND_ORIGIN", "").rstrip("/")
 
 allowed_origins = [
     "http://localhost:5173",
@@ -38,11 +39,14 @@ allowed_origins = [
 CORS(
     app,
     resources={
-        r"/api/*": {
+        r"/api/.*": {
             "origins": allowed_origins
         }
-    }
+    },
+    methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers=["Content-Type", "Authorization"]
 )
+
 
 BASE_DIR = Path(__file__).resolve().parent
 MODEL_DIR = BASE_DIR / "models"
