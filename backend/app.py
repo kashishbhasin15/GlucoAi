@@ -25,27 +25,28 @@ app.register_blueprint(
 )
 
 
-frontend_origin = os.getenv("FRONTEND_ORIGIN", "").rstrip("/")
+frontend_origin = os.getenv("FRONTEND_ORIGIN", "").strip().rstrip("/")
 
 allowed_origins = [
     "http://localhost:5173",
-    frontend_origin
+    "https://frontend-seven-sigma-40.vercel.app",
 ]
 
-allowed_origins = [
-    origin for origin in allowed_origins if origin
-]
+if frontend_origin and frontend_origin not in allowed_origins:
+    allowed_origins.append(frontend_origin)
 
 CORS(
     app,
     resources={
         r"/api/.*": {
-            "origins": allowed_origins
+            "origins": allowed_origins,
+            "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+            "allow_headers": ["Content-Type", "Authorization"],
         }
     },
-    methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allow_headers=["Content-Type", "Authorization"]
+    supports_credentials=False,
 )
+
 
 
 BASE_DIR = Path(__file__).resolve().parent
