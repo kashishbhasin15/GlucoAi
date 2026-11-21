@@ -1,6 +1,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../config';
 import {
   Sparkles,
   X,
@@ -107,14 +108,17 @@ export default function AIInsightsWidget() {
 
     try {
       const response = await axios.post<ChatResponse>(
-        '/api/chat',
-        {
-          message: text,
-          history: history.slice(1).slice(-10),
-          include_prediction: includePrediction,
-          prediction_context: predictionContext,
-        }
-      );
+  `${API_BASE_URL}/chat`,
+  {
+    message: text,
+    history: history.slice(1).slice(-10),
+    include_prediction: includePrediction,
+    prediction_context: predictionContext,
+  },
+  {
+    timeout: 60000,
+  }
+);
 
       if (!response.data.success || !response.data.reply) {
         throw new Error(
