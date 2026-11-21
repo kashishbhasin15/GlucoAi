@@ -32,7 +32,7 @@ function Pieces({ progress }: { progress: Progress }) {
       return { geo, kind: s.kind as string, color: s.color, out: s.out, dist: 1.0 + (s.kind === 'frost' || s.kind === 'glass' ? 0.9 : 0.4), dx: Math.cos(mid), dy: Math.sin(mid), edges: s.kind === 'frost' || s.kind === 'glass' ? new THREE.EdgesGeometry(geo, 35) : null };
     });
     const geo = build(0.2, 1.3, 3.9, 4.7, 1.1); // oversized glass arc, top-right of the frame
-    ring.push({ geo, kind: 'arc', color: '#986B9F', out: 0, dist: 3, dx: Math.cos(0.75), dy: Math.sin(0.75), edges: new THREE.EdgesGeometry(geo, 35) });
+    ring.push({ geo, kind: 'arc', color: "#B9A4F0", out: 0, dist: 3, dx: Math.cos(0.75), dy: Math.sin(0.75), edges: new THREE.EdgesGeometry(geo, 35) });
     return ring;
   }, []);
   useFrame((state, dt) => {
