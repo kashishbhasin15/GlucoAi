@@ -266,7 +266,6 @@ def predict_length_of_stay():
 # ==========================================
 # DIABETES RISK PREDICTION
 # ==========================================
-
 @app.post("/api/predict/diabetes")
 def predict_diabetes():
 
@@ -279,21 +278,15 @@ def predict_diabetes():
         }), 400
 
     try:
+        app.logger.warning("Starting LightGBM prediction")
+
         result = predict_patient(data)
 
-        # Gemini provides educational insights.
-        try:
-            result["gemini_insights"] = generate_diabetes_insights(
-                data,
-                result,
-            )
-            result["gemini_status"] = "success"
+        app.logger.warning("LightGBM prediction completed")
 
-        except Exception:
-            app.logger.exception("Gemini diabetes insights failed")
-
-            result["gemini_insights"] = None
-            result["gemini_status"] = "unavailable"
+        # Temporarily disable Gemini for testing
+        result["gemini_insights"] = None
+        result["gemini_status"] = "unavailable"
 
         return jsonify({
             "success": True,
@@ -313,6 +306,52 @@ def predict_diabetes():
             "success": False,
             "error": "Diabetes prediction failed.",
         }), 500
+# @app.post("/api/predict/diabetes")
+# def predict_diabetes():
+
+#     data = request.get_json(silent=True)
+
+#     if not isinstance(data, dict):
+#         return jsonify({
+#             "success": False,
+#             "error": "Expected a JSON object",
+#         }), 400
+
+#     try:
+#         result = predict_patient(data)
+
+#         # Gemini provides educational insights.
+#         try:
+#             result["gemini_insights"] = generate_diabetes_insights(
+#                 data,
+#                 result,
+#             )
+#             result["gemini_status"] = "success"
+
+#         except Exception:
+#             app.logger.exception("Gemini diabetes insights failed")
+
+#             result["gemini_insights"] = None
+#             result["gemini_status"] = "unavailable"
+
+#         return jsonify({
+#             "success": True,
+#             "prediction": result,
+#         })
+
+#     except ValueError as error:
+#         return jsonify({
+#             "success": False,
+#             "error": str(error),
+#         }), 400
+
+#     except Exception:
+#         app.logger.exception("Diabetes prediction failed")
+
+#         return jsonify({
+#             "success": False,
+#             "error": "Diabetes prediction failed.",
+#         }), 500
 
 
 # ==========================================
