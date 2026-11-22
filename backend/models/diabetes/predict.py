@@ -8,8 +8,13 @@ import lightgbm as lgb
 # Load model and configuration
 HERE = os.path.dirname(os.path.abspath(__file__))
 
+# booster = lgb.Booster(
+#     model_file=os.path.join(HERE, "lgb_final.txt")
+# )
+
 booster = lgb.Booster(
-    model_file=os.path.join(HERE, "lgb_final.txt")
+    model_file=os.path.join(HERE, "lgb_final.txt"),
+    params={"num_threads": 1}
 )
 
 with open(os.path.join(HERE, "config.json")) as f:
@@ -131,13 +136,49 @@ def get_risk_level(probability):
 
 
 # Main prediction function for Flask
+# def predict_patient(data):
+
+#     patient_data = prepare_input(data)
+
+#     # probability = float(
+#     #     booster.predict(patient_data.values.astype(float))[0]
+#     # )
+#     probability = float(
+#     booster.predict(
+#         patient_data.values.astype(float),
+#         num_threads=1
+#        )[0]
+#     )
+
+#     return {
+#         "risk_probability": round(probability, 6),
+#         "risk_percent": round(probability * 100, 2),
+#         "risk_level": get_risk_level(probability),
+#         "model": "LightGBM",
+#         "disclaimer": (
+#             "Research screening estimate only. "
+#             "Not a medical diagnosis. "
+#             "Consult a healthcare professional."
+#         )
+#     }
+
 def predict_patient(data):
+
+    print("Preparing patient data", flush=True)
 
     patient_data = prepare_input(data)
 
+    print("Patient data prepared", flush=True)
+    print("Starting LightGBM inference", flush=True)
+
     probability = float(
-        booster.predict(patient_data.values.astype(float))[0]
+        booster.predict(
+            patient_data.values.astype(float),
+            num_threads=1
+        )[0]
     )
+
+    print("LightGBM inference completed", flush=True)
 
     return {
         "risk_probability": round(probability, 6),

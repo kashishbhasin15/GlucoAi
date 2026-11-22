@@ -5,6 +5,7 @@ import {
   ArrowLeft, ArrowRight, Activity, BedDouble,
   RotateCcw, CheckCircle2, AlertCircle
 } from 'lucide-react';
+import { API_BASE_URL } from '../../config';
 import './HospitalStayPrediction.css';
 
 type FormData = {
@@ -179,7 +180,7 @@ export default function HospitalStayPrediction() {
     setError('');
 
     try {
-      const response = await fetch('/api/predict/length-of-stay', {
+      const response = await fetch(`${API_BASE_URL}/predict/length-of-stay`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
